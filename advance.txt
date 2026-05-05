@@ -1,0 +1,210 @@
+Perfect — that’s a strong list of Advanced Python Concepts 👇
+Let’s go through each briefly and clearly — suitable for notes or interviews.
+
+
+---
+
+1) File Handling
+
+Definition: Managing files (read, write, update, delete) using Python.
+
+Functions/Methods:
+
+open(filename, mode) → Opens file ('r', 'w', 'a', 'rb', etc.)
+
+read(), readline(), write(), close()
+
+
+Example:
+
+with open("data.txt", "r") as f:
+    content = f.read()
+print(content)
+
+
+
+---
+
+2) Exception Handling
+
+Definition: Handling runtime errors to prevent program crash.
+
+Keywords: try, except, else, finally, raise
+
+Example:
+
+try:
+    x = int(input("Enter a number: "))
+except ValueError:
+    print("Invalid input!")
+finally:
+    print("Execution complete.")
+
+
+
+---
+
+3) Filter, Reduce, Map, Lambda
+
+Lambda: Anonymous (nameless) function using lambda keyword.
+
+add = lambda x, y: x + y
+
+Map: Applies a function to all items in a list.
+
+list(map(lambda x: x*2, [1, 2, 3]))  # [2, 4, 6]
+
+Filter: Filters elements based on condition.
+
+list(filter(lambda x: x%2==0, [1, 2, 3, 4]))  # [2, 4]
+
+Reduce: Performs cumulative operation (needs functools.reduce).
+
+from functools import reduce
+reduce(lambda x, y: x+y, [1, 2, 3, 4])  # 10
+
+
+
+---
+
+4) Iterator
+
+Definition: Object that allows traversal through a collection one element at a time using _iter() and __next_().
+
+Example:
+
+nums = [1, 2, 3]
+it = iter(nums)
+print(next(it))  # 1
+print(next(it))  # 2
+
+
+
+---
+
+5) Generator
+
+Definition: Function that yields one item at a time (lazy iteration).
+
+Uses yield instead of return.
+
+Example:
+
+def gen():
+    for i in range(3):
+        yield i
+for val in gen():
+    print(val)
+
+
+
+---
+
+6) Decorator
+
+Definition: A function that modifies another function’s behavior without changing its code.
+
+Example:
+
+def decorator(func):
+    def wrapper():
+        print("Before function")
+        func()
+        print("After function")
+    return wrapper
+
+@decorator
+def say_hello():
+    print("Hello!")
+
+say_hello()
+
+
+
+---
+
+7) Database Creation (using SQLite)
+
+Definition: Connecting and managing databases using sqlite3 or other connectors.
+
+Example:
+
+import sqlite3
+conn = sqlite3.connect("test.db")
+cur = conn.cursor()
+cur.execute("CREATE TABLE IF NOT EXISTS users(id INTEGER, name TEXT)")
+conn.commit()
+conn.close()
+
+
+
+---
+
+8) RegEx (Regular Expression)
+
+Definition: Used for searching and pattern matching in strings.
+
+Module: re
+
+Example:
+
+import re
+text = "My number is 12345"
+match = re.search(r'\d+', text)
+print(match.group())  # 12345
+
+
+
+---
+
+9) Multithreading
+
+Definition: Running multiple threads (tasks) simultaneously for concurrency.
+
+Module: threading
+
+Example:
+
+import threading
+
+def task():
+    print("Thread running")
+
+t1 = threading.Thread(target=task)
+t1.start()
+t1.join()
+
+
+
+---
+
+10) JSON and Pickle
+
+JSON (JavaScript Object Notation):
+
+Used for data exchange between systems.
+
+Example:
+
+import json
+data = {"name": "Rahul", "age": 21}
+json_str = json.dumps(data)
+print(json_str)
+
+
+Pickle:
+
+Used to serialize (save) Python objects to a file and deserialize (load) them back.
+
+Example:
+
+import pickle
+data = {"a": 1, "b": 2}
+with open("data.pkl", "wb") as f:
+    pickle.dump(data, f)
+
+
+
+---
+
+Would you like me to create MCQs with explanations for each of these 10 topics next (like your earlier request)?
